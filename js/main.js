@@ -1,6 +1,24 @@
-function tocaSomPom() {
-    document.querySelector('#som_tecla_pom').play();
+function tocaSom(idElementoAudio) {
+    document.querySelector(idElementoAudio).play();
 }
 
-// função tocaSomPom foi guardada dentro do evento onclick
-document.querySelector('.tecla_pom').onclick = tocaSomPom;
+// lista criada com todos os elementos com a class 'tecla'
+const listaDeTeclas = document.querySelectorAll('.tecla');
+
+let contador = 0;
+
+while (contador < listaDeTeclas.length) {
+    const tecla = listaDeTeclas[contador];
+
+    // pega o nome da class na posição 1 porque possui dois nomes de class
+    const instrumento = tecla.classList[1];
+
+    // template string
+    const idAudio = `#som_${instrumento}`;
+
+    // função anônima foi atribuída no evento onclick
+    tecla.onclick = function () {
+        tocaSom(idAudio);
+    }
+    contador++;
+}
