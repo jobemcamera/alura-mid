@@ -5,9 +5,7 @@ function tocaSom(idElementoAudio) {
 // lista criada com todos os elementos com a class 'tecla'
 const listaDeTeclas = document.querySelectorAll('.tecla');
 
-let contador = 0;
-
-while (contador < listaDeTeclas.length) {
+for (let contador = 0; contador < listaDeTeclas.length; contador++) {
     const tecla = listaDeTeclas[contador];
 
     // pega o nome da class na posição 1 porque possui dois nomes de class
@@ -20,5 +18,4 @@ while (contador < listaDeTeclas.length) {
     tecla.onclick = function () {
         tocaSom(idAudio);
     }
-    contador++;
 }
